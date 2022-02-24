@@ -1,6 +1,17 @@
 from bs4 import BeautifulSoup
 import re
 
+def run():
+    #connect to GCP bucket
+    #return list of all HTML files (raw)
+    html_files = []
+    # instantiate connection with Postgre
+    for html in html_files:
+        # read with BeautifulSoup
+        # run cleaning functions
+        # store in Postgre
+        # Move the raw html file to history bucket
+
 def get_attributes(file):
     soup = BeautifulSoup(file, "html.parser")
     room = soup.find("em", {"class": "feature mobileOnly"})
