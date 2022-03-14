@@ -1,3 +1,5 @@
 .idea/
 data_brut.html
 venv
+env
+*.csv
