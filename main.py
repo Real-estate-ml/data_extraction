@@ -76,7 +76,7 @@ def get_attributes(files):
             superficie_clean.append("None")
 
     print(len(price_clean), len(room_clean), len(location_clean), len(superficie_clean))
-    df_Datas = pd.DataFrame({"Prix": price_clean, "Rooms": room_clean, "Adresse": location_clean, "Surface": superficie_clean})
+    df_Datas = pd.DataFrame({"Prix": price_clean, "Rooms": room_clean, "Cdp": location_clean, "Surface": superficie_clean})
     return df_Datas
 
 def export_csv_to_gcs(csv_name):
@@ -88,8 +88,8 @@ def export_csv_to_gcs(csv_name):
 df_Datas = get_attributes(html_files)
 
 #Drop number of arrondissment and clean
-df_Datas['Code_postal'] = df_Datas['Adresse'].str.extract(r'(75\d{3}\-?)')
-df_Datas = df_Datas.drop(['Adresse'], axis=1)
+df_Datas['Adresse'] = df_Datas['Cdp'].str.extract(r'(75\d{3}\-?)')
+df_Datas = df_Datas.drop(['Cdp'], axis=1)
 
 # Export en CSV
 csv_name = "df_Datas.csv"
